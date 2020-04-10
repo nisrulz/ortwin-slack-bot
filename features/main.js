@@ -59,7 +59,7 @@ async function getRandomGif(bot, message, keyword) {
 
 async function whoAmI(bot, message) {
     console.log("Skill Exec: whoAmI");
-    bot.reply(message, ':robot_face: I am a bot named <@' + bot.identity.name + '>');
+    bot.reply(message, ':robot_face: I am a bot named Ortwin\nI was created by Nishant Srivastava 😊');
 }
 
 // ---------------------------------- Utils ---------------------------------- //
