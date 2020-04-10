@@ -4,22 +4,35 @@ const r2 = require('r2');
 // ---------------------------------- Controller ---------------------------------- //
 module.exports = function (controller) {
 
-    controller.hears(['morgan', 'morgen'], 'message,direct_message', async (bot, message) => {
-        // 1. React first
-        await goodMorningReactions(bot, message)
-        // 2. Add GIF
-        await getRandomGif(bot, message, "morganfreeman")
-        
-    });
+    controller.hears(['morgan', 'morgen'],
+        'message,direct_message',
+        async (bot, message) => {
+            // 1. React first
+            await goodMorningReactions(bot, message)
+            // 2. Add GIF
+            await getRandomGif(bot, message, "morganfreeman")
 
-    controller.hears(['Good Morning', 'guten morgen', 'morning', 'Moin',], 'message,direct_message', async (bot, message) => {
-        await goodMorningReactions(bot, message)
-    });
+        });
+
+    controller.hears(['Good Morning', 'guten morgen', 'morning', 'Moin',],
+        'message,direct_message',
+        async (bot, message) => {
+            await goodMorningReactions(bot, message)
+        });
 
     controller.hears(['bye', 'done for today', 'Good Bye', 'goodbye', 'see you tomorrow', 'signing of for today!',
         'See everyone tomorrow', 'see you all tomorrow', 'Schönenfeierabend', 'Have a nice evening everyone',
-        'Schoenenfeierabend', 'Have a nice weekend everyone!', 'See you later'], 'message,direct_message', async (bot, message) => {
+        'Schoenenfeierabend', 'Have a nice weekend everyone!', 'See you later'],
+        'message,direct_message',
+        async (bot, message) => {
             await goodByeReactions(bot, message)
+        });
+
+
+    controller.hears(['hi', 'hello', 'identify yourself', 'who are you', 'what is your name'],
+        'direct_message,direct_mention,mention',
+        async (bot, message) => {
+            await whoAmI(bot, message)
         });
 }
 
@@ -42,6 +55,11 @@ async function getRandomGif(bot, message, keyword) {
     let gifUrl = response.data.images.downsized_large.url
     let imgMessage = await getImgMessageBlock(gifUrl, "Morgan Freeman 😄")
     await bot.replyInThread(message, imgMessage);
+}
+
+async function whoAmI(bot, message) {
+    console.log("Skill Exec: whoAmI");
+    bot.reply(message, ':robot_face: I am a bot named <@' + bot.identity.name + '>');
 }
 
 // ---------------------------------- Utils ---------------------------------- //
