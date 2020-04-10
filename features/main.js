@@ -77,7 +77,7 @@ async function getRandomGif(bot, message, keyword) {
 
 async function whoAmI(bot, message) {
     console.log("Skill Exec: whoAmI");
-    bot.reply(message, ':robot_face: I am a bot named Ortwin\nI was created by Nishant Srivastava 😊');
+    bot.reply(message, 'Hello :pikachu_wave:\nMy name is Ortwin and I am slack bot built by Nishant Srivastava 😊');
 }
 
 async function programmingQuotes(bot, message) {
@@ -107,15 +107,16 @@ async function weatherReport(bot, message, city) {
     let cityName = getCityIdRes[0].title
 
     let getCityWeatherRes = await getData(baseUrl + cityId)
-    var weatherData = "Weather Forecast for " + cityName
-    getCityWeatherRes.consolidated_weather.forEach(weather => {
-        weatherData += '\n 🔮' + weather.weather_state_name
-        weatherData += '\n 🌡Min Temp (°C)' + weather.min_temp
-        weatherData += '\n 🌡Max Temp (°C)' + weather.max_temp
-        weatherData += '\n 🌡Current Temp (°C)' + weather.the_temp
-        weatherData += '\n 💨Windspeed (mph)' + weather.wind_speed
-        weatherData += '\n 💧Humidity (%)' + weather.humidity + "\n----"
-    })
+   
+    const weather = getCityWeatherRes.consolidated_weather[0]
+    var weatherData = "Today's weather forecast for " + cityName
+        + '\n 🔮 ' + weather.weather_state_name
+        + '\n 🌡 Min Temp = ' + round(weather.min_temp,1)+"°C"
+        + '\n 🌡 Max Temp = ' + round(weather.max_temp,1)+"°C"
+        + '\n 🌡 Current Temp = ' + round(weather.the_temp,1)+"°C"
+        + '\n 💨 Windspeed = ' + round(weather.wind_speed,1)+"mph"
+        + '\n 💧 Humidity = ' + round(weather.humidity,1)+"%" + "\n"
+
     let msg = await getTextMessageBlock(weatherData)
     bot.reply(message, msg);
 }
@@ -208,4 +209,9 @@ async function getImgMessageWithTextBlock(url, title) {
         ]
     }
     return msg
+}
+
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
 }
