@@ -77,7 +77,7 @@ async function getRandomGif(bot, message, keyword) {
 
 async function whoAmI(bot, message) {
     console.log("Skill Exec: whoAmI");
-    bot.reply(message, 'Hello :pikachu_wave:\nMy name is Ortwin and I am slack bot built by Nishant Srivastava 😊');
+    bot.reply(message, 'Hello :pikachu_wave:\nMy name is Ortwin and I am a slack bot built by Nishant Srivastava 😊');
 }
 
 async function programmingQuotes(bot, message) {
