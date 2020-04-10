@@ -7,6 +7,7 @@ To complete the configuration of this bot, make sure to create an `.env` file wi
 ## Ortwin ? 🙄
 The name of this bot means Point friend. Ortwin is a slack bot that is there to help everyone out, being a friend and single point of access for cheering everyon in workspace. Ortwin can do various things like responding with GIFs or reacting to messages 😊
 
+## Avatar for Slack
 Download the avatar from below to use in Slack:
 
 <img src="avatar.png" height=128 />
