@@ -13,6 +13,9 @@ Download the avatar from below to use in Slack:
 <img src="avatar.png" height=128 />
 
 
+## Deploy to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ### Contribute
 
 1. Fork this repo.
