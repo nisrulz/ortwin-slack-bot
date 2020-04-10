@@ -34,6 +34,18 @@ module.exports = function (controller) {
         async (bot, message) => {
             await whoAmI(bot, message)
         });
+
+    controller.hears(['programming quote'],
+        'direct_message,direct_mention,mention',
+        async (bot, message) => {
+            await programmingQuotes(bot, message)
+        });
+
+    controller.hears(['xkcd'],
+        'direct_message,direct_mention,mention',
+        async (bot, message) => {
+            await xkcdComic(bot, message)
+        });
 }
 
 // ---------------------------------- Skills ---------------------------------- //
@@ -62,6 +74,26 @@ async function whoAmI(bot, message) {
     bot.reply(message, ':robot_face: I am a bot named Ortwin\nI was created by Nishant Srivastava 😊');
 }
 
+async function programmingQuotes(bot, message) {
+    console.log("Skill Exec: programmingQuotes");
+    const url = "https://programming-quotes-api.herokuapp.com/quotes/random"
+    let response = await getData(url)
+    let titleText = response.en + "\n - " + response.author
+    let imgMessage = await getTextMessageBlock(titleText)
+    bot.reply(message, imgMessage);
+}
+
+async function xkcdComic(bot, message) {
+    console.log("Skill Exec: xkcdComic");
+    const url = "https://xkcd.com/info.0.json"
+    let response = await getData(url)
+    let imgUrl = response.img
+    let titleText = response.safe_title
+    let imgMessage = await getImgMessageWithTextBlock(imgUrl, titleText)
+    bot.reply(message, imgMessage);
+}
+
+
 // ---------------------------------- Utils ---------------------------------- //
 async function reactWithEmoji(bot, message, emojiList) {
     return emojiList.forEach(emoji => {
@@ -75,6 +107,34 @@ async function reactWithEmoji(bot, message, emojiList) {
             }
         });
     })
+}
+
+async function getData(url) {
+    try {
+        const response = await r2(url).json;
+        return response
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getTextMessageBlock(title) {
+    let msg = {
+        "blocks": [
+            {
+                "type": "divider"
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "plain_text",
+                    "text": title,
+                    "emoji": true
+                }
+            }
+        ]
+    }
+    return msg
 }
 
 async function getImgMessageBlock(url, title) {
@@ -95,11 +155,31 @@ async function getImgMessageBlock(url, title) {
     return imgMessage
 }
 
-async function getData(url) {
-    try {
-        const response = await r2(url).json;
-        return response
-    } catch (error) {
-        console.log(error);
+async function getImgMessageWithTextBlock(url, title) {
+    let msg = {
+        "blocks": [
+            {
+                "type": "divider"
+            },
+            {
+                "type": "image",
+                "title": {
+                    "type": "plain_text",
+                    "text": "Image",
+                    "emoji": true
+                },
+                "image_url": url,
+                "alt_text": "Image"
+            },
+            {
+                "type": "section",
+                "text": {
+                    "type": "plain_text",
+                    "text": title,
+                    "emoji": true
+                }
+            }
+        ]
     }
+    return msg
 }
