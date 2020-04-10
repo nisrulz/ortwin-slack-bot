@@ -36,7 +36,7 @@ async function goodMorningReactions(bot, message) {
     await reactWithEmoji(bot, message, emojiList)
 }
 async function getRandomGif(bot, message, keyword) {
-    console.log("Skill Exec: morganFreemanRandomGif");
+    console.log("Skill Exec: getRandomGif");
     const urlForGiphyApi = "https://api.giphy.com/v1/gifs/random?api_key=" + process.env.GIPHY_API_KEY + "&tag=" + keyword + "&rating=g"
     let response = await getData(urlForGiphyApi)
     let gifUrl = response.data.images.downsized_large.url
