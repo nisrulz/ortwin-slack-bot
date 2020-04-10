@@ -19,6 +19,8 @@ Download the avatar from below to use in Slack:
 ## Develop on Local
 To complete the configuration of this bot when developing on local, make sure to create an `.env` file with your platform tokens and credentials.
 
+Check out the [dev-docs](/dev-docs) for more!
+
 > All development happens inside the [`features`](/features) directory of this repository and you would mostly need to make changes there
 
 ### Contribute
