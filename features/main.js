@@ -46,6 +46,12 @@ module.exports = function (controller) {
         async (bot, message) => {
             await xkcdComic(bot, message)
         });
+
+    controller.hears(['weather for berlin', 'weather'],
+        'direct_message,direct_mention,mention',
+        async (bot, message) => {
+            await weatherReport(bot, message, "berlin")
+        });
 }
 
 // ---------------------------------- Skills ---------------------------------- //
@@ -89,10 +95,30 @@ async function xkcdComic(bot, message) {
     let response = await getData(url)
     let imgUrl = response.img
     let titleText = response.safe_title
-    let imgMessage = await getImgMessageWithTextBlock(imgUrl, titleText)
-    bot.reply(message, imgMessage);
+    let msg = await getImgMessageWithTextBlock(imgUrl, titleText)
+    bot.reply(message, msg);
 }
 
+async function weatherReport(bot, message, city) {
+    console.log("Skill Exec: weatherReport");
+    const baseUrl = "https://www.metaweather.com/api/location/"
+    let getCityIdRes = await getData(baseUrl + "search/?query=" + city)
+    let cityId = getCityIdRes[0].woeid
+    let cityName = getCityIdRes[0].title
+
+    let getCityWeatherRes = await getData(baseUrl + cityId)
+    var weatherData = "Weather Forecast for " + cityName
+    getCityWeatherRes.consolidated_weather.forEach(weather => {
+        weatherData += '\n 🔮' + weather.weather_state_name
+        weatherData += '\n 🌡Min Temp (°C)' + weather.min_temp
+        weatherData += '\n 🌡Max Temp (°C)' + weather.max_temp
+        weatherData += '\n 🌡Current Temp (°C)' + weather.the_temp
+        weatherData += '\n 💨Windspeed (mph)' + weather.wind_speed
+        weatherData += '\n 💧Humidity (%)' + weather.humidity + "\n----"
+    })
+    let msg = await getTextMessageBlock(weatherData)
+    bot.reply(message, msg);
+}
 
 // ---------------------------------- Utils ---------------------------------- //
 async function reactWithEmoji(bot, message, emojiList) {
