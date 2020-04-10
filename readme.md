@@ -1,11 +1,11 @@
 <img src="header.jpg" height=280 />
 
-To complete the configuration of this bot, make sure to create an `.env` file with your platform tokens and credentials.
+# 🛎 Your point friend in the slack workspace
 
 [Botkit Docs](https://botkit.ai/docs/v4)
 
 ## Ortwin ? 🙄
-The name of this bot means Point friend. Ortwin is a slack bot that is there to help everyone out, being a friend and single point of access for cheering everyon in workspace. Ortwin can do various things like responding with GIFs or reacting to messages 😊
+The name of this bot means Point friend. Ortwin is a slack bot that is there to help everyone out, being a friend and single point of access for cheering everyone in workspace. Ortwin can do various things like responding with GIFs or reacting to messages 😊
 
 ## Avatar for Slack
 Download the avatar from below to use in Slack:
@@ -15,6 +15,11 @@ Download the avatar from below to use in Slack:
 
 ## Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## Develop on Local
+To complete the configuration of this bot when developing on local, make sure to create an `.env` file with your platform tokens and credentials.
+
+> All development happens inside the [`features`](/features) directory of this repository and you would mostly need to make changes there
 
 ### Contribute
 

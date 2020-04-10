@@ -2,7 +2,7 @@
     "name": "ortwin-slack-bot",
     "description": "🛎 Your point friend in the slack workspace",
     "repository": "https://github.com/nisrulz/ortwin-slack-bot/",
-    "logo": "https://github.com/nisrulz/ortwin-slack-bot/blob/master/avatar.png",
+    "logo": "https://raw.githubusercontent.com/nisrulz/ortwin-slack-bot/master/avatar.png",
     "keywords": [
         "node",
         "slack",
@@ -11,15 +11,15 @@
     "env": {
         "BOT_TOKEN": {
             "description": "Bot token from Slack",
-            "value": "update-this"
+            "value": ""
         },
         "CLIENT_SIGNING_SECRET": {
             "description": "Client signing secret from Slack",
-            "value": "update-this"
+            "value": ""
         },
         "GIPHY_API_KEY": {
             "description": "API key from Giphy",
-            "value": "update-this"
+            "value": ""
         }
     }
 }
