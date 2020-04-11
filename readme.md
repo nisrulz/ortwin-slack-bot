@@ -5,18 +5,33 @@
 [Botkit Docs](https://botkit.ai/docs/v4)
 
 ## Ortwin ? 🙄
+
 The name of this bot means Point friend. Ortwin is a slack bot that is there to help everyone out, being a friend and single point of access for cheering everyone in workspace. Ortwin can do various things like responding with GIFs or reacting to messages 😊
 
+Things Ortwin can do
+
+- When someone says "morgan" or "morgen", Ortwin will reply in a thread with Morgan Freeman GIF 🤪
+- When someone says "good morning" or "good bye", then respond with emoji reaction.
+- When you direct message or mention Ortwin and
+  - Say "programming quote", he will respond with a programming quote.
+  - Say "xkcd", he will respond with latest xkcd comic.
+  - Say "weather", he will respond with the weather for the city (it is hard coded to Berlin, but you can pass a different one if you want to).
+  - Say "hi", he will introduce himself.
+
+Rest the code is self explanatory. Hack away 🤓
+
 ## Avatar for Slack
+
 Download the avatar from below to use in Slack:
 
 <img src="avatar.png" height=128 />
 
-
 ## Deploy to Heroku
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Develop on Local
+
 To complete the configuration of this bot when developing on local, make sure to create an `.env` file with your platform tokens and credentials.
 
 Check out the [dev-docs](/dev-docs) for more!
