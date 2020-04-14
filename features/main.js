@@ -57,14 +57,17 @@ module.exports = function (controller) {
 // ---------------------------------- Skills ---------------------------------- //
 async function goodByeReactions(bot, message) {
     console.log("Skill Exec: goodByeReactions");
-    let emojiList = ['wave']
+    const emojiList = ['wave']
     await reactWithEmoji(bot, message, emojiList)
 }
 
 async function goodMorningReactions(bot, message) {
     console.log("Skill Exec: goodMorningReactions");
-    let emojiList = ['pikachu_wave', 'wave']
-    await reactWithEmoji(bot, message, emojiList)
+    const emojiList = ['pikachu_wave', 'wave', '1up', 'bigsmile', 'boop', 'coin', 'cookie_monster', 
+    'cool-doge','fidget_spinner', 'kirby', 'jigglypuff', 'nyancat_big']
+    const randomEmoji = getRandomItemFromArray(emojiList)
+    const reactEmojiList = [randomEmoji]
+    await reactWithEmoji(bot, message, reactEmojiList)
 }
 async function getRandomGif(bot, message, keyword) {
     console.log("Skill Exec: getRandomGif");
@@ -214,4 +217,8 @@ async function getImgMessageWithTextBlock(url, title) {
 function round(value, precision) {
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
+}
+
+function getRandomItemFromArray(array){
+    return array[Math.floor(Math.random() * array.length)];
 }
