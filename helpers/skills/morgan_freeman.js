@@ -11,7 +11,7 @@ module.exports = {
                 await slack.reactWithEmoji(bot, message, getEmoji())
 
                 // 2. Add GIF
-                let msg = await slack.getImgMessageBlock(await utils.getGifImgUrl("morganfreeman"), "Morgan Freeman 😄")
+                let msg = await slack.getImgMessageBlock(await getGifImgUrl("morganfreeman"), "Morgan Freeman 😄")
                 await bot.replyInThread(message, msg);
             });
     }
@@ -22,8 +22,16 @@ function listenOnWords() {
 }
 
 function getEmoji() {
-    const emojiList = ['pikachu_wave', 'wave', '1up', 'bigsmile', 'boop', 'coin', 'cookie_monster',
-    'cool-doge', 'fidget_spinner', 'kirby', 'jigglypuff', 'nyancat_big']
+    const emojiList = ['wave']
     const randomEmoji = utils.getRandomItemFromArray(emojiList)
     return [randomEmoji]
+}
+
+async function getGifImgUrl(keyword) {
+    const urlForGiphyApi = "https://api.giphy.com/v1/gifs/random?api_key="
+        + process.env.GIPHY_API_KEY
+        + "&tag=" + keyword + "&rating=g"
+
+    const response = await utils.getData(urlForGiphyApi)
+    return response.data.images.downsized_large.url
 }

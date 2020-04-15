@@ -13,20 +13,11 @@ module.exports = {
 
     getData: async function (url) {
         try {
-            const response = await r2(url).json;
-            return response
+            // Response
+            return await r2(url).json;
         } catch (error) {
             console.log(error);
         }
     },
-
-    getGifImgUrl: async function (keyword) {
-        const urlForGiphyApi = "https://api.giphy.com/v1/gifs/random?api_key="
-            + process.env.GIPHY_API_KEY
-            + "&tag=" + keyword + "&rating=g"
-
-        let response = await getData(urlForGiphyApi)
-        return response.data.images.downsized_large.url
-    }
 }
 
