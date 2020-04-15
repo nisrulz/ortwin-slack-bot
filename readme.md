@@ -18,6 +18,7 @@ Things Ortwin can do
   - Say "weather", he will respond with the weather for the city (it is hard coded to Berlin, but you can pass a different one if you want to).
   - Say "hi", he will introduce himself.
   - Say "happy birthday", he will wish you.
+  - Say "faq", he will list out the links.
   - Say "lunchtime", he will react with a food emoji (sometimes, to avoid spamming the channel)
 
 Rest the code is self explanatory. Hack away 🤓
