@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function listenOnWords() {
-    return ['hi', 'hello', 'identify yourself', 'who are you', 'what is your name']
+    return ['hi', 'hello', 'identify yourself', 'who are you', 'what is your name', 'Waddup', 'wassup', 'howdy', 'heyo', 'yo']
 }
 
 function msg() {

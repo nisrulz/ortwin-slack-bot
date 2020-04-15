@@ -22,7 +22,8 @@ function listenOnWords() {
 }
 
 function getEmoji() {
-    const emojiList = ['wave']
+    const emojiList = ['pikachu_wave', 'wave', '1up', 'bigsmile', 'boop', 'coin', 'cookie_monster',
+    'cool-doge', 'fidget_spinner', 'kirby', 'jigglypuff', 'nyancat_big']
     const randomEmoji = utils.getRandomItemFromArray(emojiList)
     return [randomEmoji]
 }
