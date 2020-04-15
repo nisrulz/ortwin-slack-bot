@@ -11,8 +11,8 @@ const Skill_Xkcd = require('../helpers/skills/xkcd');
 const Skill_Weather = require('../helpers/skills/weather');
 const Skill_Lunchtime = require('../helpers/skills/lunchtime');
 const Skill_HappyBirthday = require('../helpers/skills/happy_birthday');
-const Skill_ShowFAQ = require('../helpers/skills/show_faq');
-const Skill_ShowOnboarding = require('../helpers/skills/show_onboarding');
+const Skill_ShowFAQ = require('../helpers/skills/faq/show_faq');
+const Skill_ShowOnboarding = require('../helpers/skills/onboarding/show_onboarding');
 
 // ---------------------------------- Controller ---------------------------------- //
 module.exports = function (controller) {

@@ -1,3 +1,5 @@
+const listOLinks = require('./links');
+
 module.exports = {
     listen: function (controller) {
         controller.hears(listenOnWords(),
@@ -9,18 +11,12 @@ module.exports = {
 }
 
 function listenOnWords() {
-    return ['onboarding']
+    return ['faq']
 }
 
 function msg() {
-    const listOLinks = [
-        { "title": "Title 1", "url": "https://www.google.com" },
-        { "title": "Title 2", "url": "https://www.google.com" },
-        { "title": "Title 3", "url": "https://www.google.com" }
-    ]
-
     var msgStr = ""
-    listOLinks.forEach(link => {
+    listOLinks().forEach(link => {
         msgStr += "\n" + link.title + "\n" + link.url
 
     })
