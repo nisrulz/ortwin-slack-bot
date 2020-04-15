@@ -12,6 +12,7 @@ const Skill_Weather = require('../helpers/skills/weather');
 const Skill_Lunchtime = require('../helpers/skills/lunchtime');
 const Skill_HappyBirthday = require('../helpers/skills/happy_birthday');
 const Skill_ShowFAQ = require('../helpers/skills/show_faq');
+const Skill_ShowOnboarding = require('../helpers/skills/show_onboarding');
 
 // ---------------------------------- Controller ---------------------------------- //
 module.exports = function (controller) {
@@ -45,4 +46,7 @@ module.exports = function (controller) {
 
     // Handle Skill: Show FAQ
     Skill_ShowFAQ.listen(controller)
+
+    // Handle Skill: Show Onboarding
+    Skill_ShowOnboarding.listen(controller)
 }

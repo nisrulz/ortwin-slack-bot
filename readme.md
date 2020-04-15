@@ -19,6 +19,7 @@ Things Ortwin can do
   - Say "hi", he will introduce himself.
   - Say "happy birthday", he will wish you.
   - Say "faq", he will list out the links.
+  - Say "onboarding", he will list out the links.
   - Say "lunchtime", he will react with a food emoji (sometimes, to avoid spamming the channel)
 
 Rest the code is self explanatory. Hack away 🤓
