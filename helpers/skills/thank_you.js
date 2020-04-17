@@ -1,3 +1,5 @@
+const utils = require('../utils');
+
 module.exports = {
     listen: function (controller) {
         controller.hears(listenOnWords(),
@@ -9,9 +11,10 @@ module.exports = {
 }
 
 function listenOnWords() {
-    return ['hi', 'hello', 'identify yourself', 'who are you', 'what is your name', 'Waddup', 'wassup', 'howdy', 'heyo']
+    return ['Thank you', 'thanks', 'thanx']
 }
 
 function msg() {
-    return 'Hello :pikachu_wave:\nMy name is Ortwin and I am your point friend in this slack workspace 😊'
+    const listOfDays = ['You are welcome 😊', 'Happy to help 😊']
+    return utils.getRandomItemFromArray(listOfDays)
 }

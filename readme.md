@@ -22,6 +22,7 @@ Things Ortwin can do
   - Say "onboarding", he will list out the links.
   - Say "lunchtime", he will react with a food emoji (sometimes, to avoid spamming the channel)
   - Say "today is", he will respond with the day.
+  - Say "thank you", he will respond to it :)
 
 Rest the code is self explanatory. Hack away 🤓
 
