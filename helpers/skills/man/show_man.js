@@ -1,4 +1,4 @@
-const listOfLinks = require('./links');
+const listOfCommands = require('./cmds');
 
 module.exports = {
     listen: function (controller) {
@@ -11,13 +11,13 @@ module.exports = {
 }
 
 function listenOnWords() {
-    return ['onboarding']
+    return ['man']
 }
 
 function msg() {
     var msgStr = ""
-    listOfLinks().forEach(link => {
-        msgStr += "\n" + link.title + "\n" + link.url
+    listOfCommands().forEach(link => {
+        msgStr += "\n- " + link.cmd + ": " + link.desc
 
     })
     return msgStr
