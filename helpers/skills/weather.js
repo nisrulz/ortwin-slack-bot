@@ -18,6 +18,10 @@ async function msg() {
     return await getWeatherInfo("berlin")
 }
 
+function getData(info) {
+    return utils.round(info, 1)
+}
+
 async function getWeatherInfo(city) {
     const baseUrl = "https://www.metaweather.com/api/location/"
     let getCityIdRes = await utils.getData(baseUrl + "search/?query=" + city)
@@ -27,12 +31,14 @@ async function getWeatherInfo(city) {
     let getCityWeatherRes = await utils.getData(baseUrl + cityId)
 
     const weather = getCityWeatherRes.consolidated_weather[0]
+    const windSpeedKmph = (getData(weather.wind_speed) * 1.609)
+
     var weatherData = "Today's weather forecast for *" + cityName + "*"
         + '\n 🔮 ' + weather.weather_state_name
-        + '\n 🌡 Min Temp = ' + utils.round(weather.min_temp, 1) + "°C"
-        + '\n 🌡 Max Temp = ' + utils.round(weather.max_temp, 1) + "°C"
-        + '\n 🌡 Current Temp = ' + utils.round(weather.the_temp, 1) + "°C"
-        + '\n 💨 Windspeed = ' + utils.round(weather.wind_speed, 1) + "mph"
-        + '\n 💧 Humidity = ' + utils.round(weather.humidity, 1) + "%" + "\n"
+        + '\n 🌡 Min Temp = ' + getData(weather.min_temp) + "°C"
+        + '\n 🌡 Max Temp = ' + getData(weather.max_temp) + "°C"
+        + '\n 🌡 Current Temp = ' + getData(weather.the_temp) + "°C"
+        + '\n 💨 Windspeed = ' + getData(weather.wind_speed) + "kmph"
+        + '\n 💧 Humidity = ' + getData(weather.humidity) + "%" + "\n"
     return weatherData
 }
