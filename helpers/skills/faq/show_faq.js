@@ -1,4 +1,4 @@
-const listOLinks = require('./links');
+const listOfLinks = require('./links');
 
 module.exports = {
     listen: function (controller) {
@@ -16,7 +16,7 @@ function listenOnWords() {
 
 function msg() {
     var msgStr = ""
-    listOLinks().forEach(link => {
+    listOfLinks().forEach(link => {
         msgStr += "\n" + link.title + "\n" + link.url
 
     })
