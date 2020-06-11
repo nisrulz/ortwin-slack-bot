@@ -1,6 +1,6 @@
 module.exports = function () {
   return [
-    { cmd: "`man`", desc: "Shows this man page with list of actions supported by Ortwin." },
+    { cmd: "Say `man`", desc: "Shows this man page with list of actions supported by Ortwin." },
     { cmd: "Say `programming quote`", desc: "Get a random programming quote." },
     { cmd: "Say `xkcd`", desc: "Get the latest xkcd comic." },
     { cmd: "Say `weather`", desc: "Get weather update for Berlin." },

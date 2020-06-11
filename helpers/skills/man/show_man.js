@@ -11,7 +11,7 @@ module.exports = {
 }
 
 function listenOnWords() {
-    return ['man']
+    return ['man', 'what can you do']
 }
 
 function msg() {
