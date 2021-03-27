@@ -24,24 +24,28 @@ function listenOnWords() {
 }
 
 function msg() {
+    const listOfTypesOfResponses = [
+        "perhaps you mean *",
+        "have you considered a more gender-neutral pronoun like *"
+    ]
     const listOfPossibleResponses = [
-        "perhaps you mean *pals*?",
-        "perhaps you mean *crew*?",
-        "perhaps you mean *people*?",
-        "perhaps you mean *everyone*?", ,
-        "perhaps you mean *folks*?",
-        "have you considered a more gender-neutral pronoun like *folks*?",
-        "perhaps you mean *friends*?",
-        "perhaps you mean *group*?",
-        "perhaps you mean *coworkers*?",
-        "perhaps you mean *colleagues*?",
-        "perhaps you mean *all*?",
-        "perhaps you mean *team*?",
-        "perhaps you mean *honoured mortals*?",
-        "perhaps you mean *biscuitheads*?",
+        "pals",
+        "crew",
+        "people",
+        "everyone", ,
+        "folks",
+        "friends",
+        "group",
+        "coworkers",
+        "colleagues",
+        "all",
+        "team",
+        "honoured mortals",
+        "biscuitheads",
     ]
     let finalMessage = "Instead of *guys*, "
+        + utils.getRandomItemFromArray(listOfTypesOfResponses)
         + utils.getRandomItemFromArray(listOfPossibleResponses)
-        + "... *[Please consider editing your message so it's more inclusive]*"
+        + "*?... *[Please consider editing your message so it's more inclusive]*"
     return finalMessage
 }
