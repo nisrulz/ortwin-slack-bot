@@ -16,6 +16,7 @@ const Skill_ShowOnboarding = require('../helpers/skills/onboarding/show_onboardi
 const Skill_WhatDayIsIt = require('../helpers/skills/what_day_is_it');
 const Skill_ThankYou = require('../helpers/skills/thank_you');
 const Skill_ManPages = require('../helpers/skills/man/show_man');
+const Skill_InclusiveLang_CheckGuys = require('../helpers/skills/inclusive-lang-check/check_guys');
 // ---------------------------------- Controller ---------------------------------- //
 module.exports = function (controller) {
 
@@ -60,4 +61,7 @@ module.exports = function (controller) {
 
     // Handle Skill: Thank you
     Skill_ManPages.listen(controller)
+
+    // Handle Skill: Inclusive Langauge/Check usage of word guys
+    Skill_InclusiveLang_CheckGuys.listen(controller)
 }
