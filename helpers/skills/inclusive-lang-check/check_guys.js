@@ -30,7 +30,7 @@ function msg() {
         "perhaps you mean *people*?",
         "perhaps you mean *everyone*?", ,
         "perhaps you mean *folks*?",
-        "have you considered a more gender-neutral pronoun like *folks*? *[Please consider editing your message so it's more inclusive]*",
+        "have you considered a more gender-neutral pronoun like *folks*?",
         "perhaps you mean *friends*?",
         "perhaps you mean *group*?",
         "perhaps you mean *coworkers*?",
