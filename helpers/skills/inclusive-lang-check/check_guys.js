@@ -12,14 +12,9 @@ module.exports = {
 
 function listenOnWords() {
     return [
-        "you guys", "these guys", "my guys", "those guys",
-        "hey guys", "hi guys", "the guys", "these guys",
-        "thanks guys", "hello guys", "you guyz", "these guyz",
-        "my guyz", "those guyz", "hey guyz", "hi guyz",
-        "the guyz", "these guyz", "thanks guyz", "hello guyz",
-        "you guyss", "these guyss", "my guyss", "those guyss",
-        "hey guyss", "hi guyss", "the guyss", "these guyss",
-        "thanks guyss", "hello guyss"
+        "you guys", "these guys", "my guys", "those guys", "hey guys", "hi guys", "the guys", "these guys", "thanks guys", "hello guys",
+        "you guyz", "these guyz", "my guyz", "those guyz", "hey guyz", "hi guyz", "the guyz", "these guyz", "thanks guyz", "hello guyz",
+        "you guyss", "these guyss", "my guyss", "those guyss", "hey guyss", "hi guyss", "the guyss", "these guyss", "thanks guyss", "hello guyss"
     ]
 }
 
